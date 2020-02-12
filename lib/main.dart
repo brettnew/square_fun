@@ -37,19 +37,36 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Gestures and Animations'),
       ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-              left: posX,
-              top: posY,
-              child: Container(
-                width: boxSize,
-                height: boxSize,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                ),
-              ))
-        ],
+      body: GestureDetector(
+        onTap: () {
+          setState(() {
+            numTaps++;
+          });
+        },
+        onDoubleTap: () {
+          setState(() {
+            numDoubleTaps++;
+          });
+        },
+        onLongPress: () {
+          setState(() {
+            numLongPress++;
+          });
+        },
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+                left: posX,
+                top: posY,
+                child: Container(
+                  width: boxSize,
+                  height: boxSize,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                  ),
+                ))
+          ],
+        ),
       ),
       bottomNavigationBar: Material(
         color: Theme.of(context).primaryColorLight,
